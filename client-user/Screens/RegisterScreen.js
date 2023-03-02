@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import React from "react";
 import { StyleSheet } from "react-native";
-
+// konflick?
 export default function Register() {
   const [username, onChangeUsername] = React.useState(" ");
   const [email, onChangeEmail] = React.useState("");
