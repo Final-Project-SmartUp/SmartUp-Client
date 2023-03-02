@@ -8,7 +8,7 @@ import MatchHistory from "./Screens/MatchHistory";
 export default function App() {
   return (
   
-    // <LandingPage/>
+    <LandingPage/>
       // <Login/>  
       // <MenuPage/>
       // <ProfilePage/>

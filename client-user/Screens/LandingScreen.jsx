@@ -6,14 +6,13 @@ const LandingPage = () => {
     <View style={styles.container}>
 
       <View style={styles.content}>
-        <Image style={styles.image} source={{uri:"https://www.jetpunk.com/img/user-photo-library/38/38a12fe9c0-450.png"}} />
+        <Image style={styles.image} source={require("../assets/logo.png")} />
         <View style={styles.textContainer}>
-          <Text style={styles.title}>Welcome to our App</Text>
           <Text style={styles.subtitle}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </Text>
           <TouchableOpacity style={styles.ctaButton}>
-            <Text style={styles.ctaButtonText}>Get Started</Text>
+            <Text style={styles.ctaButtonText}>Play Now!</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -24,7 +23,7 @@ const LandingPage = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#E5E0FF',
   },
   header: {
     flexDirection: 'row',
@@ -35,11 +34,11 @@ const styles = StyleSheet.create({
     borderBottomColor: '#ddd',
   },
   logo: {
-    width: 80,
-    height: 80,
+    width: 100,
+    height: 100,
   },
   button: {
-    backgroundColor: '#007AFF',
+    backgroundColor: '#FE5252',
     borderRadius: 4,
     padding: 12,
     alignItems: 'center',
@@ -56,8 +55,8 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   image: {
-    width: '80%',
-    height: 200,
+    width: 600,
+    height: 400,
     resizeMode: 'contain',
   },
   textContainer: {
@@ -77,7 +76,7 @@ const styles = StyleSheet.create({
     marginBottom: 32,
   },
   ctaButton: {
-    backgroundColor: '#007AFF',
+    backgroundColor: '#FE5252',
     borderRadius: 4,
     padding: 12,
     alignItems: 'center',
