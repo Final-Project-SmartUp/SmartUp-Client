@@ -11,7 +11,7 @@ import React from "react";
 import { StyleSheet } from "react-native";
 // konflick?
 export default function Register() {
-  const [username, onChangeUsername] = React.useState(" ");
+  const [username, onChangeUsername] = React.useState("");
   const [email, onChangeEmail] = React.useState("");
   const [password, onChangePassword] = React.useState("");
   return (
@@ -66,8 +66,8 @@ export default function Register() {
 }
 const styles = StyleSheet.create({
   image: {
-    height: 100,
-    width: 100,
+    height: 200,
+    width: 200,
     marginBottom: 20,
   },
   container: {
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
   text: {
     textAlign: "center",
     marginBottom: 10,
-    fontSize: 40,
+    fontSize: 30,
   },
   textInputContainer: {
     flex: 1,
@@ -100,16 +100,16 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginTop: 20,
     borderRadius: 10,
-    paddingTop: 12,
+    paddingTop: 10,
     height: 50,
     backgroundColor: "#EEEEEE",
   },
   button: {
     flex: 1,
-    marginTop: 90,
+    marginTop: 50,
     width: "50%",
     height: "40%",
-    marginBottom: 10,
+    marginBottom: 20,
     borderRadius: 4,
     borderWidth: 2,
     backgroundColor: "#A9D5E2",

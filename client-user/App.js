@@ -8,11 +8,11 @@ import MatchHistory from "./Screens/MatchHistory";
 export default function App() {
   return (
   
-    <LandingPage/>
-      // <Login/>  
+    // <LandingPage/>
+      // <Login/>   
       // <MenuPage/>
       // <ProfilePage/>
-    //  <Register/>
+     <Register/>
       // <Menu/>
       // <MatchHistory/>
    

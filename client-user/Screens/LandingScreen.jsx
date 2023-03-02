@@ -23,7 +23,7 @@ const LandingPage = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#E5E0FF',
+    backgroundColor: '#F1D9D9',
   },
   header: {
     flexDirection: 'row',

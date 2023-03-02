@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    backgroundColor: '#FF6D6D',
     padding: 32,
   },
   title: {
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
   },
   button: {
     padding: 16,
-    backgroundColor: '#007aff',
+    backgroundColor: 'black',
     borderRadius: 8,
     marginBottom: 16,
     width: '100%',
