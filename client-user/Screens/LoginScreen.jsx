@@ -1,12 +1,27 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { useDispatch } from 'react-redux';
+import { login } from '../stores/actions/actionCreator';
 
 const LoginPage = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const dispatch = useDispatch()
+  const [email,setEmail] = useState("")
+  const [password,setPassword] = useState("")
+ 
+  
 
-  const handleLogin = () => {
-    // Handle login logic here
+  function getEmailDataValue(e){
+      setEmail(e)
+  }
+  function getPasswordDataValue(e){
+    setPassword(e)
+  }
+ 
+  const handleLogin = (e) => {
+      dispatch(login({
+        email:email,
+        password:password
+      }))
   };
 
   return (
@@ -14,16 +29,18 @@ const LoginPage = () => {
       <Text style={styles.title}>Login</Text>
       <TextInput
         style={styles.input}
-        placeholder="Username"
-        onChangeText={(text) => setUsername(text)}
-        value={username}
+        placeholder="Email"
+        onChangeText={getEmailDataValue}
+        value={email}
+        name="email"
       />
       <TextInput
         style={styles.input}
         placeholder="Password"
-        onChangeText={(text) => setPassword(text)}
+        onChangeText={getPasswordDataValue}
         value={password}
         secureTextEntry={true}
+        name="password"
       />
       <TouchableOpacity style={styles.button} onPress={handleLogin}>
         <Text style={styles.buttonText}>Login</Text>
