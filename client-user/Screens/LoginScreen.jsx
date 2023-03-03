@@ -1,23 +1,25 @@
-import React, { useState } from "react";
-import {
-  TextInput,
-  View,
-  Button,
-  Text,
-  ScrollView,
-  Pressable,
-  Image,
-  SafeAreaView,
-} from "react-native";
-
-import { StyleSheet } from "react-native";
+import React, { useState } from 'react';
+import { StyleSheet, Text, TextInput, TouchableOpacity, View, ScrollView, Pressable, Image } from 'react-native';
+import { useDispatch } from 'react-redux';
+import { login } from '../stores/actions/actionCreator';
 
 const LoginPage = () => {
-  const [email, onChangeEmail] = useState("");
-  const [password, onChangePassword] = useState("");
+  const dispatch = useDispatch()
+  const [email,setEmail] = useState("")
+  const [password,setPassword] = useState("")
 
-  const handleLogin = () => {
-    // Handle login logic here
+  function getEmailDataValue(e){
+      setEmail(e)
+  }
+  function getPasswordDataValue(e){
+    setPassword(e)
+  }
+ 
+  const handleLogin = (e) => {
+      dispatch(login({
+        email:email,
+        password:password
+      }))
   };
 
   return (
@@ -58,6 +60,7 @@ const LoginPage = () => {
         </Pressable>
       </View>
     </ScrollView>
+
   );
 };
 
