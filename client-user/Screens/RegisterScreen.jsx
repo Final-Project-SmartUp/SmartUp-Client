@@ -19,16 +19,13 @@ export default function Register() {
     <ScrollView>
       <View style={styles.container}>
         <View style={styles.textContainer}>
-          <Image
-            source={require("../assets/image.png")}
-            style={styles.image}
-          />
+          <Image source={require("../assets/image.png")} style={styles.image} />
           <Text style={styles.textHeader}>More than just a game</Text>
         </View>
         <View style={styles.textInputContainer}>
           <Text style={styles.text}>Username</Text>
           <TextInput
-           placeholderTextColor="#C0C0C0"
+            placeholderTextColor="#C0C0C0"
             placeholder="Username"
             editable
             multiline
@@ -64,9 +61,8 @@ export default function Register() {
           />
         </View>
         <Pressable style={styles.button}>
-          <Text style={{ color: "#D8EBEB", textAlign: "center", fontWeight:'bold', fontSize:18 }}>CREATE ACCOUNT</Text>
+          <Text style={styles.textButton}>CREATE ACCOUNT</Text>
         </Pressable>
-      
       </View>
     </ScrollView>
   );
@@ -76,13 +72,13 @@ const styles = StyleSheet.create({
     height: 150,
     width: 300,
     marginBottom: 30,
-    marginTop:20
+    marginTop: 20,
   },
   container: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor:"#D8EBEB",
+    backgroundColor: "#D8EBEB",
   },
   textContainer: {
     marginTop: 90,
@@ -91,15 +87,16 @@ const styles = StyleSheet.create({
   },
   textHeader: {
     textAlign: "center",
-    marginBottom: 10,
+    marginBottom: 15,
     fontSize: 20,
-    color:'white',
+    color: "white",
     // fontFamily: 'Poppins'
   },
-  text:{
-    marginTop:20,
-    color:'white',
-    fontWeight:'bold'
+  text: {
+    marginTop: 20,
+    color: "white",
+    fontWeight: "bold",
+    fontSize:18
   },
   textInputContainer: {
     flex: 1,
@@ -111,7 +108,7 @@ const styles = StyleSheet.create({
     textAlignVertical: "center",
     flexDirection: "row",
     padding: 10,
-    paddingLeft:15,
+    paddingLeft: 15,
     fontSize: 15,
     flex: 2,
     marginTop: 10,
@@ -121,7 +118,6 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
   },
   button: {
-
     marginTop: 80,
     width: "90%",
     height: "5%",
@@ -132,5 +128,11 @@ const styles = StyleSheet.create({
     borderColor: "white",
     justifyContent: "center",
     alignItems: "center",
+  },
+  textButton: {
+    color: "#D8EBEB",
+    textAlign: "center",
+    fontWeight: "bold",
+    fontSize: 18,
   },
 });
