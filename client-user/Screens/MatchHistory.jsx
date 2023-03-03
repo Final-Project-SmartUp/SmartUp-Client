@@ -25,10 +25,10 @@ const MainMenu = ({ navigation }) => {
         <Icon name="gears" size={48} color="#fff" onPress={handleSettingsPress} />
         <Text style={styles.title}>Quiz Game</Text>
         <TouchableOpacity style={styles.button} onPress={handleStartPress}>
-          <Text style={styles.buttonText}>Start</Text>
+          <Text style={styles.buttonText}>START</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={handleLeaderboardPress}>
-          <Text style={styles.buttonText}>Leaderboard</Text>
+          <Text style={styles.buttonText}>LEADERBOARD</Text>
         </TouchableOpacity>
       </View>
     </ImageBackground>
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FF6D6D',
+    backgroundColor: '#C0DCF7',
     padding: 32,
   },
   title: {
@@ -53,25 +53,26 @@ const styles = StyleSheet.create({
     marginBottom: 64,
     color: '#fff',
     textAlign: 'center',
-    textShadowColor: 'rgba(0, 0, 0, 0.75)',
-    textShadowOffset: { width: 2, height: 2 },
-    textShadowRadius: 4,
+    // textShadowColor: 'rgba(0, 0, 0, 0.75)',
+    // textShadowOffset: { width: 2, height: 2 },
+    // textShadowRadius: 4,
   },
   button: {
     padding: 16,
-    backgroundColor: 'black',
+    backgroundColor: 'white',
     borderRadius: 8,
     marginBottom: 16,
-    width: '100%',
+    width: '70%',
   },
   buttonText: {
     fontSize: 24,
-    color: '#fff',
+    color: '#A7C7E7',
     fontWeight: 'bold',
     textAlign: 'center',
-    textShadowColor: 'rgba(0, 0, 0, 0.75)',
-    textShadowOffset: { width: 2, height: 2 },
-    textShadowRadius: 4,
+    letterSpacing:3
+    // textShadowColor: 'rgba(0, 0, 0, 0.75)',
+    // textShadowOffset: { width: 2, height: 2 },
+    // textShadowRadius: 4,
   },
 });
 
