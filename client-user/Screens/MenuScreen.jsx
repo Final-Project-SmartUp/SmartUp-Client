@@ -1,5 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, ScrollView } from 'react-native';
+import CardCategories from '../Components/CarouselMenu';
+
 
 const MainMenu = ({ navigation }) => {
   const handleStartPress = () => {
@@ -12,13 +14,12 @@ const MainMenu = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Quiz Game</Text>
-      <TouchableOpacity style={styles.button} onPress={handleStartPress}>
-        <Text style={styles.buttonText}>Start</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={handleLeaderboardPress}>
-        <Text style={styles.buttonText}>Leaderboard</Text>
-      </TouchableOpacity>
+      <View style={styles.containerMostCategories}>
+      <Text style={{textAlign:'center'}}>
+        Most Categories
+      </Text>
+      <CardCategories/>
+      </View>
     </View>
   );
 };
@@ -28,24 +29,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: '#C8ECA4',
   },
-  title: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    marginBottom: 32,
-  },
-  button: {
-    padding: 16,
-    backgroundColor: '#007aff',
-    borderRadius: 8,
-    marginBottom: 16,
-  },
-  buttonText: {
-    fontSize: 16,
-    color: '#fff',
-    fontWeight: 'bold',
-    textAlign: 'center',
+  containerMostCategories:{
+    backgroundColor:"white", width:"100%", height:"20%", marginBottom:600, paddingLeft:10, justifyContent:'center', borderBottomWidth:2, borderColor:'grey'
   },
 });
 
