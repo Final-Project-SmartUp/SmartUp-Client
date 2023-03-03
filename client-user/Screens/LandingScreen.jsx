@@ -1,27 +1,30 @@
-import React from 'react';
-import { StyleSheet, Text, View, Image, ScrollView, Pressable  } from 'react-native';
+import React from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  ScrollView,
+  Pressable,
+} from "react-native";
 
 const LandingPage = () => {
   return (
     <ScrollView>
-    <View style={styles.container}>
-      <View style={styles.textContainer}>
-        <Image
-          source={require("../assets/image.png")}
-          style={styles.image}
-        />
-        <Text style={styles.textHeader}>More than just a game</Text>
-      </View>
+      <View style={styles.container}>
+        <View style={styles.textContainer}>
+          <Image source={require("../assets/image.png")} style={styles.image} />
+          <Text style={styles.textHeader}>More than just a game</Text>
+        </View>
 
-      <Pressable style={styles.button1}>
-        <Text style={{ color: "#C8ECA4", textAlign: "center", fontWeight:'bold', fontSize:18 }}>CREATE ACCOUNT</Text>
-      </Pressable>
-      <Pressable style={styles.button2}>
-        <Text style={{ color: "#C8ECA4", textAlign: "center", fontWeight:'bold', fontSize:18 }}>SIGN IN</Text>
-      </Pressable>
-    
-    </View>
-  </ScrollView>
+        <Pressable style={styles.button1}>
+          <Text style={styles.textButton}>CREATE ACCOUNT</Text>
+        </Pressable>
+        <Pressable style={styles.button2}>
+          <Text style={styles.textButton}>SIGN IN</Text>
+        </Pressable>
+      </View>
+    </ScrollView>
   );
 };
 
@@ -30,13 +33,13 @@ const styles = StyleSheet.create({
     height: 150,
     width: 300,
     marginBottom: 30,
-    marginTop:100
+    marginTop: 100,
   },
   container: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor:"#C8ECA4",
+    backgroundColor: "#C8ECA4",
   },
   textContainer: {
     marginTop: 90,
@@ -47,8 +50,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginBottom: 10,
     fontSize: 20,
-    color:'white',
-    fontWeight:'bold'
+    color: "white",
+    fontWeight: "bold",
     // fontFamily: 'Poppins'
   },
   button1: {
@@ -63,7 +66,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  button2:{
+  button2: {
     marginTop: 20,
     width: "90%",
     height: "5%",
@@ -73,8 +76,14 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderColor: "white",
     justifyContent: "center",
-    alignItems: "center"
-  }
+    alignItems: "center",
+  },
+  textButton: {
+    color: "#C8ECA4",
+    textAlign: "center",
+    fontWeight: "bold",
+    fontSize: 18,
+  },
 });
 
 export default LandingPage;
