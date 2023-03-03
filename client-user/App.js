@@ -9,11 +9,11 @@ import { SafeAreaView } from "react-native-safe-area-context";
 export default function App() {
   return (
   <SafeAreaView>
-    {/* // <LandingPage/>
-      // <Login/>   
-      // <MenuPage/>
-      // <ProfilePage/> */}
-     <Register/>
+     <LandingPage/>
+      {/* // <Login/>    */}
+      {/* // <MenuPage/> */}
+      {/* // <ProfilePage/>  */}
+     {/* <Register/> */}
       {/* // <MenuPage/>
       // <MatchHistory/> */}
   </SafeAreaView>

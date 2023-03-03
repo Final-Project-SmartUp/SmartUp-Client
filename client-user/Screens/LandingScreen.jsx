@@ -1,91 +1,80 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView, Pressable  } from 'react-native';
 
 const LandingPage = () => {
   return (
+    <ScrollView>
     <View style={styles.container}>
-
-      <View style={styles.content}>
-        <Image style={styles.image} source={require("../assets/logo.png")} />
-        <View style={styles.textContainer}>
-          <Text style={styles.subtitle}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </Text>
-          <TouchableOpacity style={styles.ctaButton}>
-            <Text style={styles.ctaButtonText}>Play Now!</Text>
-          </TouchableOpacity>
-        </View>
+      <View style={styles.textContainer}>
+        <Image
+          source={require("../assets/image.png")}
+          style={styles.image}
+        />
+        <Text style={styles.textHeader}>More than just a game</Text>
       </View>
+
+      <Pressable style={styles.button1}>
+        <Text style={{ color: "#C8ECA4", textAlign: "center", fontWeight:'bold', fontSize:18 }}>CREATE ACCOUNT</Text>
+      </Pressable>
+      <Pressable style={styles.button2}>
+        <Text style={{ color: "#C8ECA4", textAlign: "center", fontWeight:'bold', fontSize:18 }}>SIGN IN</Text>
+      </Pressable>
+    
     </View>
+  </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
+  image: {
+    height: 150,
+    width: 300,
+    marginBottom: 30,
+    marginTop:100
+  },
   container: {
     flex: 1,
-    backgroundColor: '#F1D9D9',
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ddd',
-  },
-  logo: {
-    width: 100,
-    height: 100,
-  },
-  button: {
-    backgroundColor: '#FE5252',
-    borderRadius: 4,
-    padding: 12,
-    alignItems: 'center',
-  },
-  buttonText: {
-    color: '#fff',
-    fontWeight: 'bold',
-    fontSize: 16,
-  },
-  content: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 16,
-  },
-  image: {
-    width: 600,
-    height: 400,
-    resizeMode: 'contain',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor:"#C8ECA4",
   },
   textContainer: {
-    marginTop: 32,
-    alignItems: 'center',
+    marginTop: 90,
+    justifyContent: "center",
+    alignItems: "center",
   },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 16,
+  textHeader: {
+    textAlign: "center",
+    marginBottom: 10,
+    fontSize: 20,
+    color:'white',
+    fontWeight:'bold'
+    // fontFamily: 'Poppins'
   },
-  subtitle: {
-    textAlign: 'center',
-    color: '#666',
-    fontSize: 16,
-    marginHorizontal: 32,
-    marginBottom: 32,
+  button1: {
+    marginTop: 240,
+    width: "90%",
+    height: "5%",
+    marginBottom: 10,
+    borderRadius: 20,
+    borderWidth: 2,
+    backgroundColor: "white",
+    borderColor: "white",
+    justifyContent: "center",
+    alignItems: "center",
   },
-  ctaButton: {
-    backgroundColor: '#FE5252',
-    borderRadius: 4,
-    padding: 12,
-    alignItems: 'center',
-  },
-  ctaButtonText: {
-    color: '#fff',
-    fontWeight: 'bold',
-    fontSize: 16,
-  },
+  button2:{
+    marginTop: 20,
+    width: "90%",
+    height: "5%",
+    marginBottom: 200,
+    borderRadius: 20,
+    borderWidth: 2,
+    backgroundColor: "white",
+    borderColor: "white",
+    justifyContent: "center",
+    alignItems: "center"
+  }
 });
 
 export default LandingPage;
