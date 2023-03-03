@@ -5,16 +5,18 @@ import MenuPage from "./Screens/MenuScreen"
 import ProfilePage from "./Screens/ProfileScreen"
 import Menu from "./Screens/MenuBanget"
 import MatchHistory from "./Screens/MatchHistory"
-import Gamescreen from "./Screens/GameScreen";
+// import Gamescreen from "./Screens/GameScreen";
 import CategoryDetail from "./Screens/CategoryDetailScreen";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Provider } from "react-redux"
 import store from "./stores"
 import ResultScreen from "./Screens/ResultScreen"
+// import ChatScreen from "./Screens/ChatScreen"
+
 export default function App() {
     return (
         <Provider store={store} >
-          <SafeAreaView>
+
             {/* <LandingPage /> */}
             {/* <Register /> */}
             {/* <Login /> */}
@@ -25,7 +27,8 @@ export default function App() {
             {/* <ProfilePage /> */}
             {/* <Menu /> */}
             {/* <MatchHistory /> */}
-             </SafeAreaView>
+             {/* <ChatScreen/> */}
+  
         </Provider>
     )
 }
