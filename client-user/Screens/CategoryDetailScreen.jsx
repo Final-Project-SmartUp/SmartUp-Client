@@ -1,7 +1,98 @@
+import { useEffect, useState } from "react";
 import { TextInput, View, Button, Text, ScrollView, Pressable, Image, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import db from "../config/firebaseConnection";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import axios from "axios";
+import { onSnapshot } from "firebase/firestore";
+import { doc, updateDoc, getDoc } from "firebase/firestore";
 
-export default function CategoryDetail() {
+export default function CategoryDetail({ navigation }) {
+    const [currentUser, setCurrentUser] = useState({
+        userId: "",
+        username: "",
+        isFindMatch: "",
+        isPlaying: "",
+    });
+
+    const playGame = async () => {
+        try {
+            const userRef = doc(db, "users", await AsyncStorage.getItem("userId"));
+            await updateDoc(userRef, {
+                isFindMatch: true,
+            });
+
+            // const user = await getDoc(userRef)
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
+    useEffect(() => {
+        async function setUser() {
+            const userId = await AsyncStorage.getItem("userId");
+            const { data } = await axios({
+                method: "GET",
+                url: `http://192.168.55.116:3001/users/${userId}`,
+            });
+
+            setCurrentUser({
+                userId: data.id,
+                username: data.username,
+                isFindMatch: data.isFindMatch,
+                isPlaying: data.isPlaying,
+            });
+        }
+        setUser();
+    }, []);
+
+    useEffect(() => {
+        // const user = query(collection(db, "users"), where("i", "==", "true"));
+        (async () => {
+            try {
+                const unsubscribe = onSnapshot(doc(db, "users", await AsyncStorage.getItem("userId")), async (doc) => {
+                    const user = doc.data();
+                    const userId = await AsyncStorage.getItem("userId");
+                    if (user.isFindMatch) {
+                        const { data: allRooms } = await axios({
+                            method: "GET",
+                            url: "http://192.168.55.116:3001/rooms",
+                        });
+
+                        if (allRooms.length === 0) {
+                            const { data: newRoom } = await axios({
+                                method: "POST",
+                                url: `http://192.168.55.116:3001/rooms/createRoom/${userId}`,
+                            });
+                            console.log(newRoom, "buat room baru");
+                            navigation.navigate("Gamescreen", {
+                                roomId: newRoom.id,
+                            });
+                        }
+
+                        if (allRooms.length > 0 && allRooms[0].player2 === null) {
+                            const { data: joinRoom } = await axios({
+                                method: "PUT",
+                                url: `http://192.168.55.116:3001/rooms/${allRooms[0].id}`,
+                                data: {
+                                    userId,
+                                },
+                            });
+                            console.log(joinRoom, "player 2 terisi bung");
+                            navigation.navigate("Gamescreen", {
+                                roomId: allRooms[0].id,
+                            });
+                        }
+                    }
+                });
+
+                return unsubscribe;
+            } catch (err) {
+                console.log(err);
+            }
+        })();
+    }, []);
+
     return (
         <SafeAreaView>
             <View style={{ height: "100%" }}>
@@ -45,8 +136,8 @@ export default function CategoryDetail() {
                             borderColor: "#FEE4BD",
                         }}
                     >
-                        <Pressable>
-                            <Text style={{ color: "white" }}>Play Game</Text> //! Create Room atau Find Room yang ada
+                        <Pressable onPress={playGame}>
+                            <Text style={{ color: "white" }}>Play Game</Text>
                         </Pressable>
                     </View>
                 </View>

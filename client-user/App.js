@@ -44,7 +44,7 @@ const ShowTab = () => {
         >
             <Tab.Screen name="CategoryDetail" component={CategoryDetail} />
             <Tab.Screen name="Gamescreen" component={Gamescreen} />
-            <Tab.Screen name="ResultScreen" component={ResultScreen} />
+            {/* <Tab.Screen name="ResultScreen" component={ResultScreen} /> */}
         </Tab.Navigator>
     );
 };
