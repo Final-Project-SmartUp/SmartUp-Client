@@ -12,6 +12,7 @@ import { Provider } from "react-redux"
 import store from "./stores"
 import ResultScreen from "./Screens/ResultScreen"
 import FoundOpponentScreen from "./Screens/FoundOpponentScreen"
+import FindMatchScreen from "./Screens/FindMatchScreen"
 export default function App() {
     return (
         <Provider store={store} >
@@ -22,7 +23,8 @@ export default function App() {
             {/* <Gamescreen/> */}
             {/* <CategoryDetail/> */}
             {/* <ResultScreen/> */}
-            <FoundOpponentScreen/>
+            {/* <FoundOpponentScreen/> */}
+            <FindMatchScreen/>
             {/* <MenuPage /> */}
             {/* <ProfilePage /> */}
             {/* <Menu /> */}
