@@ -3,37 +3,57 @@ import React from "react";
 import { StyleSheet } from "react-native";
 
 export default function Register() {
-    const [username, onChangeUsername] = React.useState("");
-    const [email, onChangeEmail] = React.useState("");
-    const [password, onChangePassword] = React.useState("");
+    const [username, setUsername] = React.useState("");
+    const [email, setEmail] = React.useState("");
+    const [password, setPassword] = React.useState("");
     return (
-        <View style={styles.container}>
-            <View style={styles.textContainer}>
-                <Image source={require("../assets/image.png")} style={styles.image} />
-                <Text style={styles.textHeader}>More than just a game</Text>
-            </View>
-            <View style={styles.textInputContainer}>
-                <Text style={styles.text}>Username</Text>
-                <TextInput placeholderTextColor="#C0C0C0" placeholder="Username" editable multiline numberOfLines={4} maxLength={40} value={username} onChangeText={(username) => onChangeUsername(username)} style={styles.textInput} />
-                <Text style={styles.text}>Email</Text>
-                <TextInput placeholder="Email" placeholderTextColor="#C0C0C0" editable multiline numberOfLines={4} maxLength={40} value={email} onChangeText={(email) => onChangeEmail(email)} style={styles.textInput} />
-                <Text style={styles.text}>Password</Text>
-                <TextInput
-                    placeholder="Min. 5 characters"
-                    placeholderTextColor="#C0C0C0"
-                    editable
-                    multiline
-                    numberOfLines={4}
-                    maxLength={40}
-                    value={password}
-                    onChangeText={(password) => onChangePassword(password)}
-                    style={styles.textInput}
-                />
-                <Pressable style={styles.button}>
-                    <Text style={styles.textButton}>CREATE ACCOUNT</Text>
-                </Pressable>
-            </View>
-        </View>
+      <View style={styles.container}>
+      <View style={styles.textContainer}>
+        <Image source={require("../assets/image.png")} style={styles.image} />
+        <Text style={styles.textHeader}>More than just a game</Text>
+      </View>
+      <View style={styles.textInputContainer}>
+      <Text style={styles.text}>Username</Text>
+        <TextInput
+          placeholder="Email"
+          placeholderTextColor="#C0C0C0"
+          editable
+          multiline
+          numberOfLines={4}
+          maxLength={40}
+          value={username}
+          onChangeText={(username) => setUsername(username)}
+          style={styles.textInput}
+        />
+        <Text style={styles.text}>Email</Text>
+        <TextInput
+          placeholder="Email"
+          placeholderTextColor="#C0C0C0"
+          editable
+          multiline
+          numberOfLines={4}
+          maxLength={40}
+          value={email}
+          onChangeText={(email) => setEmail(email)}
+          style={styles.textInput}
+        />
+        <Text style={styles.text}>Password</Text>
+        <TextInput
+          placeholder="Min. 5 characters"
+          placeholderTextColor="#C0C0C0"
+          editable
+          secureTextEntry={true}
+          numberOfLines={4}
+          maxLength={40}
+          value={password}
+          onChangeText={(password) => setPassword(password)}
+          style={styles.textInput}
+        />
+      </View>
+        <Pressable style={styles.button}>
+          <Text style={styles.textButton}>CREATE ACCOUNT</Text>
+        </Pressable>
+    </View>
     );
 }
 const styles = StyleSheet.create({
@@ -51,7 +71,6 @@ const styles = StyleSheet.create({
         paddingTop: 180,
     },
     textContainer: {
-        backgroundColor: "red",
         justifyContent: "center",
         alignItems: "center",
     },
@@ -69,10 +88,10 @@ const styles = StyleSheet.create({
         fontSize: 18,
     },
     textInputContainer: {
-        backgroundColor: "yellow",
         height: "auto",
         marginTop: 20,
         width: "90%",
+        marginBottom:10
     },
     textInput: {
         textAlignVertical: "center",
@@ -88,19 +107,19 @@ const styles = StyleSheet.create({
         backgroundColor: "white",
     },
     button: {
-        marginTop: 80,
-        width: "90%",
-        height: "8%",
-        marginBottom: 200,
-        borderRadius: 20,
-        borderWidth: 2,
-        backgroundColor: "white",
-        borderColor: "white",
-        justifyContent: "center",
-        alignItems: "center",
+      marginTop: 40,
+      width: "60%",
+      height: "8%",
+      marginBottom: 200,
+      borderRadius: 20,
+      borderWidth: 2,
+      backgroundColor: "white",
+      borderColor: "white",
+      justifyContent: "center",
+      alignItems: "center",
     },
     textButton: {
-        color: "#D8EBEB",
+        color: "#8d4e42",
         textAlign: "center",
         fontWeight: "bold",
         fontSize: 18,
