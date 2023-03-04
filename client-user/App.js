@@ -10,6 +10,7 @@ import CategoryDetail from "./Screens/CategoryDetailScreen";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Provider } from "react-redux"
 import store from "./stores"
+import ResultScreen from "./Screens/ResultScreen"
 export default function App() {
     return (
         <Provider store={store} >
@@ -18,7 +19,8 @@ export default function App() {
             {/* <Register /> */}
             {/* <Login /> */}
             {/* <Gamescreen/> */}
-            <CategoryDetail/>
+            {/* <CategoryDetail/> */}
+            <ResultScreen/>
             {/* <MenuPage /> */}
             {/* <ProfilePage /> */}
             {/* <Menu /> */}
