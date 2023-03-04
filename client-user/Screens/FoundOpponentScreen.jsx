@@ -30,9 +30,9 @@ export default function FoundOpponentScreen() {
       </View>
       <View style={styles.versusContainer}>
         <View style={styles.versus}>
-          <View style={styles.whiteCircle}>
+          
             <Text style={{ fontSize: 30, fontWeight: "bold" }}>VS</Text>
-          </View>
+       
         </View>
       </View>
       <View style={styles.player2Container}>

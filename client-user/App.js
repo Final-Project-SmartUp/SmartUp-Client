@@ -16,6 +16,9 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import store from "./stores";
 import ResultScreen from "./Screens/ResultScreen";
 import LoginPage from "./Screens/LoginScreen";
+import PostDetail from "./Screens/PostDetailScreen";
+import FoundOpponentScreen from "./Screens/FoundOpponentScreen";
+
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -59,7 +62,9 @@ export default function App() {
                     <Stack.Screen name="Login" component={LoginPage} />
                     <Stack.Screen name="Home" component={ShowTab} options={{ headerShown: false }} />
                 </Stack.Navigator>
+                
             </NavigationContainer>
+
         </Provider>
     );
 }
