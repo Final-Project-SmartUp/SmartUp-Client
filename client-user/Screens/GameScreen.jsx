@@ -1,9 +1,78 @@
 import { TextInput, View, Button, Text, ScrollView, Pressable, Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StyleSheet } from "react-native";
+import { useEffect, useState, useRef } from "react";
+import FindMatchScreen from "./FindMatchScreen";
+import axios from "axios";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { doc, onSnapshot } from "firebase/firestore";
+import db from "../config/firebaseConnection";
 
-export default function Gamescreen() {
-    //
+export default function Gamescreen({ route }) {
+    const { roomId } = route.params;
+    const [room, setRoom] = useState({});
+    const [questions, setQuestions] = useState([]);
+    const [time, setTime] = useState(10);
+    const [loading, setLoading] = useState(true);
+    const [loadingQuestion, setLoadingQuestion] = useState(true);
+    const [counter, setCounter] = useState(0);
+
+    const timerRef = useRef(time);
+
+    useEffect(() => {
+        if (room.player2) {
+            setInterval(() => {
+                timerRef.current -= 1;
+                console.log(timerRef.current, "<<");
+                if (timerRef.current < 0) {
+                    setCounter(counter + 1);
+                    setTime(10);
+                    timerRef.current = 10;
+                } else {
+                    setTime(timerRef.current);
+                }
+            }, 1000);
+        }
+    }, [room]);
+
+    useEffect(() => {
+        (async () => {
+            try {
+                const { data: questions } = await axios({
+                    method: "GET",
+                    url: `http://192.168.55.116:3000/questions/10`,
+                    headers: {
+                        access_token: await AsyncStorage.getItem("access_token"),
+                    },
+                });
+                await setQuestions(questions);
+                setLoadingQuestion(false);
+            } catch (err) {
+                console.log(err);
+            }
+        })();
+    }, []);
+
+    useEffect(() => {
+        (async () => {
+            try {
+                const unsubscribe = onSnapshot(doc(db, "rooms", roomId), async (doc) => {
+                    const room = doc.data();
+                    if (room.player2 === null || !room) {
+                        setLoading(true);
+                    } else {
+                        setLoading(false);
+                    }
+                });
+            } catch (err) {
+                console.log(err);
+            }
+        })();
+    }, []);
+
+    if (loading || loadingQuestion) {
+        return <FindMatchScreen />;
+    }
 
     return (
         <SafeAreaView>
@@ -23,7 +92,7 @@ export default function Gamescreen() {
                     </View>
                     <View style={styles.timeContainer}>
                         <Text style={{ fontSize: 13 }}>Time Left</Text>
-                        <Text>Hehe</Text>
+                        <Text>{time}</Text>
                     </View>
                     <View style={styles.profileScoreLeftContainer}>
                         <View style={styles.profileScoreLeft}>
@@ -40,12 +109,12 @@ export default function Gamescreen() {
                 </View>
                 <View style={styles.questionBoxContainer}>
                     <View style={styles.questionBox}>
-                        <Text style={styles.question}>Which Apple computer was the first personal computer sold with a GUI</Text>
+                        <Text style={styles.question}>{questions[counter].question}</Text>
                     </View>
                 </View>
                 <View style={styles.answerContainer}>
                     <View style={styles.answerA}>
-                        <Text style={styles.textAnswer}>ANJING</Text>
+                        <Text style={styles.textAnswer}>{questions[counter].correctAnswer}</Text>
                     </View>
                     <View style={styles.answerB}>
                         <Text style={styles.textAnswer}>ANJING</Text>
