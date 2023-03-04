@@ -89,12 +89,13 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginBottom: 15,
     fontSize: 20,
-    color: "white",
+    color: "#8d4e42",
+    fontWeight:'bold'
     // fontFamily: 'Poppins'
   },
   text: {
     marginTop: 20,
-    color: "white",
+    color: "#8d4e42",
     fontWeight: "bold",
     fontSize:18
   },

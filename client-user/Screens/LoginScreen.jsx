@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#FFC3BD",
+    backgroundColor: "#FFE59E",
   },
   textContainer: {
     marginTop: 90,
@@ -86,13 +86,12 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginBottom: 10,
     fontSize: 20,
-    color: "white",
+    color: "#8d4e42",
     fontWeight: "bold",
-    // fontFamily: 'Poppins'
   },
   text: {
     marginTop: 23,
-    color: "white",
+    color: "#8d4e42",
     fontWeight: "bold",
     fontSize:18
   },
@@ -128,7 +127,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   textButton: {
-    color: "#FFC3BD",
+    color: "#8d4e42",
     textAlign: "center",
     fontWeight: "bold",
     fontSize: 18,

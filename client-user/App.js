@@ -15,10 +15,12 @@ export default function App() {
         <Provider store={store} >
           <SafeAreaView>
             {/* <LandingPage /> */}
-            <Login />
+            {/* <Register /> */}
+            {/* <Login /> */}
+            {/* <Gamescreen/> */}
+            <CategoryDetail/>
             {/* <MenuPage /> */}
             {/* <ProfilePage /> */}
-            {/* <Register /> */}
             {/* <Menu /> */}
             {/* <MatchHistory /> */}
              </SafeAreaView>
